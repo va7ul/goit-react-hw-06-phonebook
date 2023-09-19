@@ -3,7 +3,7 @@ import { addContact } from 'redux/contactsSlice';
 import { Formik, Field } from 'formik';
 import { nanoid } from 'nanoid';
 import { CardForm, Button } from './ContactForm.styled';
-import { getContacts } from 'redux/selectors';
+import { getContacts } from 'redux/contactsSlice';
 
 export const ContactForm = () => {
   const contacts = useSelector(getContacts);
