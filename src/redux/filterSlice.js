@@ -1,17 +1,24 @@
-export const filterContacts = value => {
-  return {
-    type: 'filter/filterContacts',
-    payload: value,
-  };
-};
+import { createSlice } from '@reduxjs/toolkit';
 
-const filterInitialState = '';
+const filterSlice = createSlice({
+  name: 'filter',
+  initialState: '',
+  reducers: {
+    filterContacts(state, action) {
+      return (state = action.payload);
+    },
+  },
+});
 
-export const filterReducer = (state = filterInitialState, action) => {
-  switch (action.type) {
-    case 'filter/filterContacts':
-      return action.payload;
-    default:
-      return state;
-  }
-};
+export const { filterContacts } = filterSlice.actions;
+export const filterReducer = filterSlice.reducer;
+
+// import { createAction, createReducer } from '@reduxjs/toolkit';
+
+// export const filterContacts = createAction('filter/filterContacts');
+
+// const filterInitialState = '';
+
+// export const filterReducer = createReducer(filterInitialState, builder =>
+//   builder.addCase(filterContacts, (state, action) => (state = action.payload))
+// );
